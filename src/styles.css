@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+.fv-component-container{
+    padding: 20px;
+    margin: 2%;
+    border: 2px solid rgb(19, 90, 222);
+    border-radius: 20px 0px 0px 20px;
+}
+
+.fv-fila-item{
+    padding: 20px;
+    margin: 2%;
+    border: 2px solid rgb(224, 233, 248);
+    border-radius: 20px 0px 0px 20px;
+}
+
+#mayusculas{
+    text-transform: uppercase;
+  }
+
+.botones_edicion{
+    position: absolute;
+    text-align: right;
+    padding: 20%;
+    padding-top: 0%;
+}
+
+.boton_anadir{
+    position: absolute;
+    text-align: right;
+    padding: 10%;
+    padding-top: 0%;
+    
+}

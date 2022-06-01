@@ -1,5 +1,8 @@
-<div *ngIf="usuario">
-    <h1>{{usuario.nombre}} {{usuario.apellido}}</h1>
-    <h1>{{usuario.titulo}}</h1>
-    <img src="{{usuario.fotoPerfil}}" alt="" width="100">
+<div class="fv-component-container">
+    <div *ngIf="usuario">
+        <div class="col"></div>
+        <div class="row"><h1>{{usuario.nombre}} {{usuario.apellido}}</h1></div>
+        <div class="row"><h1>{{usuario.titulo}}</h1></div>
+        <div class="col"><img src="{{usuario.fotoPerfil}}" alt="" width="100"></div>    
+    </div>
 </div>

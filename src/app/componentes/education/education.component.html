@@ -1,41 +1,40 @@
-<div class="row edu main-container">
+<div class="row edu main-container fv-component-container">
+  
   <h1>Educación</h1>
-  <div class="text-center">
+
+  <div class="boton_anadir">
     <button type="button" class="btn btn-success" (click)="onOpenModal('add')">
       <a class="nav-link" style="color: #fff">
         Añadir Educación <span class="sr-only"> (current) </span>
       </a>
     </button>
   </div>
+
   <div id="main-container">
-    <div *ngFor="let education of educations" class="col-lg-12">
-      <div class="container">
-        <div class="row algin-items-start">
-          <div class="col">
-            <img src="{{ education.imagenEdu }}" alt="" width="120" />
-          </div>
-          <div class="col">
-            <h3>{{ education.tituloEdu }}</h3>
-          </div>
-
-          <div class="col text-center">
-            <h3>{{ education.fechaEdu }}</h3>
-            <a (click)="onOpenModal('edit', education)" class="btn btn-primary tooltips" data-placement="top"
-              data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>
-            </a>
-            <a (click)="onOpenModal('delete', education)" class="btn btn-secondary tooltips" data-placement="top"
-              data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
+    <div *ngFor="let education of educations" class="row align-items-center fv-fila-item">
       <div class="row">
-        <div class="col align-self-end">
-          <p>{{ education.descEdu }}</p>
+        <div class="col botones_edicion">
+          <a (click)="onOpenModal('edit', education)" class="btn btn-primary tooltips" data-placement="top"
+            data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>
+          </a>
+          <a (click)="onOpenModal('delete', education)" class="btn btn-secondary tooltips" data-placement="top"
+            data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i>
+          </a>
         </div>
       </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <img src="{{ education.imagenEdu }}" class="img-fluid shadow-sm mb-1 p-2 rounded-start" id="fotodeperfil">
+      </div>
+      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+        <span class="align-middle">
+          <h4 id="nombre"><b>{{ education.tituloEdu }}</b></h4>
+          <h5>Año Ingreso: {{ education.fechaEdu }}</h5>
+          <p>{{ education.descEdu }}</p>
+        </span>
+      </div>
+
     </div>
+
   </div>
 
 
@@ -58,30 +57,30 @@
           <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
             <div class="form-group">
               <label for="tituloEdu">Titulo</label>
-              <input type="text" ngModel name="tituloEdu" class="form-control" id="tituloEdu" placeholder="Title"
+              <input type="text" ngModel name="tituloEdu" class="form-control" id="tituloEdu" placeholder="Nombre de la institución..."
                 required />
             </div>
             <div class="form-group">
               <label for="fechaEdu">Fecha</label>
-              <input type="text" ngModel name="fechaEdu" class="form-control" id="fechaEdu" placeholder="Start Date"
+              <input type="text" ngModel name="fechaEdu" class="form-control" id="fechaEdu" placeholder="Fecha de ingreso"
                 required />
             </div>
             <div class="form-group">
               <label for="descEdu">Descripción</label>
-              <input type="text" ngModel name="descEdu" class="form-control" id="descEdu" placeholder="Job Title"
+              <input type="text" ngModel name="descEdu" class="form-control" id="descEdu" placeholder="Descripción"
                 required />
             </div>
             <div class="form-group">
               <label for="imagenEdu">Imagen</label>
-              <input type="text" ngModel name="imagenEdu" class="form-control" id="imagenEdu" placeholder="Image URL"
+              <input type="text" ngModel name="imagenEdu" class="form-control" id="imagenEdu" placeholder="URL de la imagen descriptiva"
                 required />
             </div>
             <div class="modal-footer">
               <button type="button" id="add-education-form" class="btn btn-secondary" data-dismiss="modal">
-                cerrar
+                Cerrar
               </button>
               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">
-                añadir cambios
+                Guardar cambios
               </button>
             </div>
           </form>
