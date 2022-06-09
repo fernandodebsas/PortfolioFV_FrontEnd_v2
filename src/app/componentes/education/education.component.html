@@ -1,14 +1,18 @@
-<div class="row edu main-container fv-component-container">
-  
-  <h1>Educación</h1>
+<div class="edu main-container fv-component-container">
 
-  <div class="boton_anadir">
-    <button type="button" class="btn btn-success" (click)="onOpenModal('add')">
-      <a class="nav-link" style="color: #fff">
-        Añadir Educación <span class="sr-only"> (current) </span>
-      </a>
-    </button>
-  </div>
+  <mat-toolbar-row>
+    <div class="col-sm-6" style="text-align: left">
+      <span>
+        <h1><b>Educación</b></h1>
+      </span>
+    </div>
+    <div class="col-sm-6" style="text-align: right; margin-bottom: 2%; padding-right: 1%;">
+      <span><button type="button" class="btn btn-success" (click)="onOpenModal('add')">
+          <a class="nav-link" style="color: #fff;"> Añadir Educación <span class="sr-only"> (current) </span></a>
+        </button>
+      </span>
+    </div>
+  </mat-toolbar-row>
 
   <div id="main-container">
     <div *ngFor="let education of educations" class="row align-items-center fv-fila-item">
@@ -22,21 +26,18 @@
           </a>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-        <img src="{{ education.imagenEdu }}" class="img-fluid shadow-sm mb-1 p-2 rounded-start" id="fotodeperfil">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="text-align:center;">
+         <img src="{{ education.imagenEdu }}" class="img-fluid shadow-sm mb-1 p-2 rounded-start" id="fotoEdu">
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
         <span class="align-middle">
           <h4 id="nombre"><b>{{ education.tituloEdu }}</b></h4>
-          <h5>Año Ingreso: {{ education.fechaEdu }}</h5>
+          <h5>Período: {{ education.fechaEdu }}</h5>
           <p>{{ education.descEdu }}</p>
         </span>
       </div>
-
     </div>
-
   </div>
-
 
   <!-- Modal añadir education-->
 
@@ -57,13 +58,13 @@
           <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
             <div class="form-group">
               <label for="tituloEdu">Titulo</label>
-              <input type="text" ngModel name="tituloEdu" class="form-control" id="tituloEdu" placeholder="Nombre de la institución..."
-                required />
+              <input type="text" ngModel name="tituloEdu" class="form-control" id="tituloEdu"
+                placeholder="Nombre de la institución..." required />
             </div>
             <div class="form-group">
               <label for="fechaEdu">Fecha</label>
-              <input type="text" ngModel name="fechaEdu" class="form-control" id="fechaEdu" placeholder="Fecha de ingreso"
-                required />
+              <input type="text" ngModel name="fechaEdu" class="form-control" id="fechaEdu"
+                placeholder="Fecha de ingreso" required />
             </div>
             <div class="form-group">
               <label for="descEdu">Descripción</label>
@@ -72,8 +73,8 @@
             </div>
             <div class="form-group">
               <label for="imagenEdu">Imagen</label>
-              <input type="text" ngModel name="imagenEdu" class="form-control" id="imagenEdu" placeholder="URL de la imagen descriptiva"
-                required />
+              <input type="text" ngModel name="imagenEdu" class="form-control" id="imagenEdu"
+                placeholder="URL de la imagen descriptiva" required />
             </div>
             <div class="modal-footer">
               <button type="button" id="add-education-form" class="btn btn-secondary" data-dismiss="modal">
@@ -106,21 +107,21 @@
         <div class="modal-body">
           <form #editForm="ngForm">
             <div class="form-group">
-              <label for="name">Título Nueva Educación</label>
+              <label for="tituloEdu">Título Nueva Educación</label>
               <input type="text" ngModel="{{ editEducation?.tituloEdu }}" name="tituloEdu" class="form-control"
-                id="tituloEdu" aria-describedby="emailHelp" placeholder="Title" />
+                id="tituloEdu" placeholder="Tītulo" />
             </div>
             <input type="text" ngModel="{{ editEducation?.idEdu }}" name="idEdu" class="form-control" id="idEdu"
               placeholder="" />
             <div class="form-group">
               <label for="descEdu">Descripción Nueva Educación</label>
               <input type="text" ngModel="{{ editEducation?.descEdu }}" name="descEdu" class="form-control" id="descEdu"
-                placeholder="description" />
+                placeholder="Descripción" />
             </div>
             <div class="form-group">
-              <label for="phone">Fecha Inicio Nueva Educación</label>
+              <label for="fechaEdu">Fecha Inicio Nueva Educación</label>
               <input type="text" ngModel="{{ editEducation?.fechaEdu }}" name="fechaEdu" class="form-control"
-                id="fechaEdu" placeholder="start date" />
+                id="fechaEdu" placeholder="Período" />
             </div>
             <div class="form-group">
               <label for="imagenEdu">URL Imagen Nueva Educación</label>
@@ -174,7 +175,6 @@
   <div *ngIf="educations?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
     <div class="alert alert-info" role="alert">
       <h4 class="alert-heading">No se encontraron items.</h4>
-      <p>Chau</p>
     </div>
   </div>
 </div>

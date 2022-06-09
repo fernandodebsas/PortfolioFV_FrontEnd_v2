@@ -1,32 +1,76 @@
-.fv-component-container{
-    padding: 20px;
-    margin: 2%;
-    border: 2px solid rgb(19, 90, 222);
-    border-radius: 20px 0px 0px 20px;
+.fv-component-container {
+  margin: 2%;
+  padding-top: 3%;
+  padding-left: 3%;
+  border: 2px solid rgb(182, 207, 255);
+  border-radius: 20px 0px 0px 20px;
 }
 
-.fv-fila-item{
-    padding: 20px;
-    margin: 2%;
-    border: 2px solid rgb(224, 233, 248);
-    border-radius: 20px 0px 0px 20px;
+.fv-component-container-header {
+  margin-left: 2%;
+  margin-right: 2%;
+  border: 2px solid rgb(182, 207, 255);
+  border-radius: 20px 0px 0px 20px;
 }
 
-#mayusculas{
-    text-transform: uppercase;
-  }
-
-.botones_edicion{
-    position: absolute;
-    text-align: right;
-    padding: 20%;
-    padding-top: 0%;
+.fv-fila-item {
+  padding: 20px;
+  margin: 2%;
+  border: 2px solid rgb(224, 233, 248);
+  border-radius: 20px 0px 0px 20px;
 }
 
-.boton_anadir{
-    position: absolute;
-    text-align: right;
-    padding: 10%;
-    padding-top: 0%;
-    
+.fv-fila-item-skills {
+  padding: 20px;
+  margin: 2%;
+  border: 2px solid rgb(224, 233, 248);
+  border-radius: 20px 0px 0px 20px;
+}
+
+#mayusculas {
+  text-transform: uppercase;
+}
+
+.botones_edicion {
+  position: relative;
+  text-align: right;
+
+}
+
+.mat-toolbar-row-stickyheader {
+  background: rgb(0, 65, 122);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 65, 122, 1) 25%,
+    rgba(49, 141, 227, 1) 93%
+  );
+}
+
+.mat-toolbar-row-footer {
+  background: rgb(0, 65, 122);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 65, 122, 1) 25%,
+    rgba(49, 141, 227, 1) 93%
+  );
+}
+
+.footer-text {
+  color: white;
+  font-weight: ligther;
+  font-size: 12px;
+}
+
+.fv-textimgwrap {
+  position: relative;
+  top: 16px;
+  left: 38px;
+}
+
+body{
+  color:rgb(80, 80, 80)
+}
+
+#fotoEdu{
+  width: 140px;
 }

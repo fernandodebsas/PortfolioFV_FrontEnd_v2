@@ -1,0 +1,18 @@
+<mat-toolbar style="position: fixed; bottom: 0;" class="footer-text">
+
+    <mat-toolbar-row class="mat-toolbar-row-footer">
+        <div class="col-sm-3" style=""></div>
+        <div class="col-sm-6" style="text-align: center; white-space: pre-line;" *ngIf="usuario">
+            <p style="margin-bottom: -9px;"></p>
+            <p style="margin-bottom: -9px;">Proyecto desarrollado por {{usuario.nombre}} {{usuario.apellido}} en Buenos Aires, Argentina, entre el año 2021 y el 2022.</p>
+        </div>
+        <div class="col-sm-3" style=" text-align: right">
+            <span><a href="#"><img src="../../../assets/images/facebook.png" width="40px"></a>&nbsp;&nbsp;</span>
+            <span><a href="#"><img src="../../../assets/images/github.png" width="40px"></a>&nbsp;&nbsp;</span>
+            <span><a href="#"><img src="../../../assets/images/instagram.png" width="40px"></a>&nbsp;&nbsp;</span>
+            <span><a href="#"><img src="../../../assets/images/linkedin.png" width="40px"></a>&nbsp;&nbsp;</span>
+            <span><a href="#"><img src="../../../assets/images/twitter.png" width="40px"></a>&nbsp;&nbsp;</span>
+        </div>
+    </mat-toolbar-row>
+
+</mat-toolbar>

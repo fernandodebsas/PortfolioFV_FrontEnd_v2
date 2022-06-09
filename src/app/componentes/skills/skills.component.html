@@ -1,0 +1,306 @@
+<div class="edu main-container fv-component-container">
+
+  <mat-toolbar-row>
+    <div class="col-sm-6" style="text-align: left">
+      <span>
+        <h1><b>Skills</b></h1>
+      </span>
+    </div>
+    <div class="col-sm-6" style="text-align: right; margin-bottom: 2%; padding-right: 1%;">
+      <span><button type="button" class="btn btn-success" (click)="onOpenModal('add')">
+          <a class="nav-link" style="color: #fff;"> Añadir Skill <span class="sr-only"> (current) </span></a>
+        </button>
+      </span>
+    </div>
+  </mat-toolbar-row>
+
+  <div id="main-container" style="margin-right: 3%;">
+
+    <div class="main-content">
+
+      <div class="row">
+
+        <!--hardskills-->
+
+        <div class="col">
+
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <h3 class="mb-0" id="mayusculas" style="text-align: center;">Hard Skills</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Skill</th>
+                    <th scope="col">Porcentaje</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <!--ngFor-->
+
+                  <tr *ngFor="let skill of skills | orderBy: 'nombreSkill'">
+                    <ng-container *ngIf="(skill.isHardSkill == true)">
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <a href="#" class="avatar rounded-circle mr-3">
+                            <img alt="Image placeholder" src="{{skill.fotoSkill}}">
+                          </a>
+                          <div class="media-body">
+                            <span class="mb-0 text-sm">{{skill.nombreSkill}}</span>
+                          </div>
+                        </div>
+                      </th>
+
+                      <td>
+                        <div>
+                          <circle-progress [showSubtitle]="false" [titleFontSize]="'11'" [percent]="skill.porcentaje"
+                            [radius]="30" [outerStrokeWidth]="2" [innerStrokeWidth]="1" [outerStrokeColor]="'rgba(49, 141, 227, 1)'"
+                            [innerStrokeColor]="'rgb(182, 207, 255)'" [animation]="true" [animationDuration]='(skill.porcentaje*10)'>
+                          </circle-progress>
+                        </div>
+
+                      </td>
+
+                      <td class="botones_edicion">
+                        <a (click)="onOpenModal('edit', skill)" class="btn btn-primary tooltips" data-placement="top"
+                          data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>
+                        </a>
+                        <a (click)="onOpenModal('delete', skill)" class="btn btn-secondary tooltips"
+                          data-placement="top" d ata-toggle="tooltip" data-original-title="Delete"><i
+                            class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </ng-container>
+                  </tr>
+
+                  <!--/ngFor-->
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!--/hardskills-->
+
+        <p>&nbsp;</p>
+
+        <!--softskills-->
+
+        <div class="col">
+
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <h3 class="mb-0" id="mayusculas" style="text-align: center;">Soft Skills</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Skill</th>
+                    <th scope="col">Porcentaje</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <!--ngFor-->
+
+                  <tr *ngFor="let skill of skills">
+                    <ng-container *ngIf="(skill.isHardSkill == false)">
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <a href="#" class="mr-3" style="font-size: 20px;">
+                            <i class={{skill.fotoSkill}} aria-hidden="true"></i>
+                          </a>
+
+
+                          <div class="media-body">
+                            <span class="mb-0 text-sm">{{skill.nombreSkill}}</span>
+                          </div>
+                        </div>
+                      </th>
+
+                      <td>
+                        <div>
+                          <circle-progress [showSubtitle]="false" [titleFontSize]="'11'" [percent]="skill.porcentaje"
+                            [radius]="30" [outerStrokeWidth]="2" [innerStrokeWidth]="1" [outerStrokeColor]="'#78C000'"
+                            [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="1000">
+                          </circle-progress>
+                        </div>
+
+                      </td>
+
+                      <td class="botones_edicion">
+                        <a (click)="onOpenModal('edit', skill)" class="btn btn-primary tooltips" data-placement="top"
+                          data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>
+                        </a>
+                        <a (click)="onOpenModal('delete', skill)" class="btn btn-secondary tooltips"
+                          data-placement="top" d ata-toggle="tooltip" data-original-title="Delete"><i
+                            class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </ng-container>
+                  </tr>
+
+                  <!--/ngFor-->
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!--/softskills-->
+
+      </div>
+      
+    </div>
+
+  </div>
+  &nbsp;
+
+  <!-- Modal añadir skill-->
+
+  <div class="modal fade" id="addSkillModal" tabindex="-1" role="dialog" aria-labelledby="addSkillModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addSkillModalLabel">
+            Añadir Skill
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddSkill(addForm)">
+            <div class="form-group">
+              <label for="nombreSkill">Nombre de la nueva Skill</label>
+              <input type="text" ngModel name="nombreSkill" class="form-control" id="nombreSkill" placeholder="..."
+                required />
+            </div>
+            <div class="form-group">
+              <label for="isHardSkill">Es Hard Skill?</label>
+              <input type="checkbox" ngModel name="isHardSkill" class="form-check-input" id="isHardSkill"
+                placeholder="Es una Hard Skill?" />
+            </div>
+            <div class="form-group">
+              <label for="porcentaje">Porcentaje Skill</label>
+              <input type="text" ngModel name="porcentaje" class="form-control" id="porcentaje"
+                placeholder="Porcentaje de la Skill" required />
+            </div>
+            <div class="form-group">
+              <label for="fotoSkill">Imagen SKill</label>
+              <input type="text" ngModel name="fotoSkill" class="form-control" id="fotoSkill"
+                placeholder="URL de la imagen descriptiva" required />
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="add-skill-form" class="btn btn-secondary" data-dismiss="modal">
+                Cerrar
+              </button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">
+                Guardar cambios
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit modal -->
+
+  <div class="modal fade" id="editSkillModal" tabindex="-1" role="dialog" aria-labelledby="editSkillModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateSkillModalLabel">
+            Editar Skill {{ editSkill?.nombreSkill }}
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="name">Nombre Skill</label>
+              <input type="text" ngModel="{{ editSkill?.nombreSkill }}" name="nombreSkill" class="form-control"
+                id="nombreSkill" placeholder="Nombre de la skill..." />
+            </div>
+            <input type="text" ngModel="{{ editSkill?.idSkills }}" name="idSkills" class="form-control" id="idSkills"
+              placeholder="" />
+            <div class="form-group">
+              <label for="isHardSkill">Es Hard Skill?</label>
+              <input type="checkbox" ngModel="{{ editSkill?.isHardSkill }}" name="isHardSkill" class="form-check-input"
+                id="isHardSkill" placeholder="Es una Hard Skill?" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Porcentaje</label>
+              <input type="text" ngModel="{{ editSkill?.porcentaje }}" name="porcentaje" class="form-control"
+                id="porcentaje" placeholder="start date" />
+            </div>
+            <div class="form-group">
+              <label for="fotoSkill">URL Imagen Skill</label>
+              <input type="text" ngModel="{{ editSkill?.fotoSkill }}" name="fotoSkill" class="form-control"
+                id="fotoSkill" placeholder="Image URL" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">
+                Cerrar
+              </button>
+              <button (click)="onUpdateSkill(editForm.value)" data-dismiss="modal" class="btn btn-primary">
+                Guardar cambios
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete modal -->
+
+  <div data-bs-toggle="modal" data-bs-target="#deleteModellabel" class="modal fade" id="deleteSkillModal" tabindex="-1"
+    role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Borrar Skill</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Eliminar item: {{deleteSkill?.nombreSkill}}?</p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              No
+            </button>
+            <button (click)="onDeleteSkill(deleteSkill!.idSkills)" class="btn btn-danger" data-dismiss="modal">
+              Si
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificación "No hay skills" -->
+
+  <div *ngIf="skills?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+    <div class="alert alert-info" role="alert" style="margin-right: 3%;">
+      <h4 class="alert-heading">No se encontraron items.</h4>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,20 @@
-<div class="fv-component-container">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="fv-component-container-header" style="width: 100;">
     <div *ngIf="usuario">
-        <div class="col"></div>
-        <div class="row"><h1>{{usuario.nombre}} {{usuario.apellido}}</h1></div>
-        <div class="row"><h1>{{usuario.titulo}}</h1></div>
-        <div class="col"><img src="{{usuario.fotoPerfil}}" alt="" width="100"></div>    
+        <div class="col-sm-12">
+            <span>
+                <img src="../../../assets/images/banner_tech.jpg" class="img-fluid"
+                    style="border-radius: 18px 0px 0px 0px; border-bottom: 2px solid rgb(182, 207, 255);">
+                <img src="{{usuario.fotoPerfil}}" class="img-fluid shadow-sm mb-10 bg-light rounded"
+                    style="position:relative; bottom: 8em; left: 2em; width: 180px; border: 2px solid rgb(182, 207, 255); float: left;">
+                <div class="fv-textimgwrap">
+                    <div class="row"><h1><b>{{usuario.nombre}} {{usuario.apellido}}</b></h1></div>
+                    <div class="row"><h2>{{usuario.titulo}}</h2></div>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                </div>
+            </span>
+        </div>
     </div>
 </div>

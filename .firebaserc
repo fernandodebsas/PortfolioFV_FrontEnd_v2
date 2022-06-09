@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "fv-portfolio"
-  }
+    "default": "fv-portfolio",
+    "fv-portfolio": "fv-portfolio"
+  },
+  "targets": {}
 }
