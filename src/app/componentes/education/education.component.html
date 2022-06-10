@@ -1,22 +1,19 @@
-<div class="edu main-container fv-component-container">
+<div class="main-container fv-component-container">
 
   <mat-toolbar-row>
-    <div class="col-sm-6" style="text-align: left">
+    <div class="container-fluid" style="text-align: left">
       <span>
         <h1><b>Educación</b></h1>
-      </span>
-    </div>
-    <div class="col-sm-6" style="text-align: right; margin-bottom: 2%; padding-right: 1%;">
-      <span><button type="button" class="btn btn-success" (click)="onOpenModal('add')">
-          <a class="nav-link" style="color: #fff;"> Añadir Educación <span class="sr-only"> (current) </span></a>
-        </button>
       </span>
     </div>
   </mat-toolbar-row>
 
   <div id="main-container">
+
     <div *ngFor="let education of educations" class="row align-items-center fv-fila-item">
+
       <div class="row">
+
         <div class="col botones_edicion">
           <a (click)="onOpenModal('edit', education)" class="btn btn-primary tooltips" data-placement="top"
             data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>
@@ -25,21 +22,36 @@
             data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i>
           </a>
         </div>
+
       </div>
+
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="text-align:center;">
          <img src="{{ education.imagenEdu }}" class="img-fluid shadow-sm mb-1 p-2 rounded-start" id="fotoEdu">
       </div>
+      
       <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
         <span class="align-middle">
+
           <h4 id="nombre"><b>{{ education.tituloEdu }}</b></h4>
           <h5>Período: {{ education.fechaEdu }}</h5>
           <p>{{ education.descEdu }}</p>
+
         </span>
       </div>
+
     </div>
+
+    <div class="container-fluid" style="text-align: right; margin-bottom: 2%; padding-right: 2%;">
+      <span>
+        <button type="button" class="btn btn-success btn-sm rounded" (click)="onOpenModal('add')">
+          <a class="nav-link" style="color: #fff; font-weight: normal; font-size: 12px; font-family: Roboto;"> Agregar Educación <span class="sr-only"> (current) </span></a>
+        </button>
+      </span>
+    </div>
+
   </div>
 
-  <!-- Modal añadir education-->
+  <!-- Modal Agregar Educación-->
 
   <div class="modal fade" id="addEducationModal" tabindex="-1" role="dialog" aria-labelledby="addEducationModalLabel"
     aria-hidden="true">
@@ -68,8 +80,8 @@
             </div>
             <div class="form-group">
               <label for="descEdu">Descripción</label>
-              <input type="text" ngModel name="descEdu" class="form-control" id="descEdu" placeholder="Descripción"
-                required />
+              <input type="text" ngModel name="descEdu" class="form-control" id="descEdu"
+                placeholder="Descripción" required />
             </div>
             <div class="form-group">
               <label for="imagenEdu">Imagen</label>
@@ -106,6 +118,7 @@
         </div>
         <div class="modal-body">
           <form #editForm="ngForm">
+            
             <div class="form-group">
               <label for="tituloEdu">Título Nueva Educación</label>
               <input type="text" ngModel="{{ editEducation?.tituloEdu }}" name="tituloEdu" class="form-control"

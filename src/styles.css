@@ -34,7 +34,14 @@
 .botones_edicion {
   position: relative;
   text-align: right;
+}
 
+.botones_edicion_experiencia {
+  position: relative;
+  text-align: right;
+  top: 20px;
+  margin-top: -30px;
+  right: -20px;
 }
 
 .mat-toolbar-row-stickyheader {
@@ -61,16 +68,26 @@
   font-size: 12px;
 }
 
-.fv-textimgwrap {
-  position: relative;
-  top: 16px;
-  left: 38px;
-}
-
 body{
   color:rgb(80, 80, 80)
 }
 
 #fotoEdu{
   width: 140px;
+}
+
+.foto_acercade{
+  width: 40vw;
+  max-width: 15%;
+  position: relative;
+  left: 3vw;
+  top: 10vw;
+  margin-bottom: 1vw;
+  border: 2px solid rgb(182, 207, 255);
+  border-radius: 20px 20px 0px 20px;
+}
+
+.fondo_banner{
+  background-image: url(assets/images/banner_tech.jpg);
+  background-size: cover;
 }

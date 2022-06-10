@@ -1,173 +1,199 @@
-<div class="edu main-container fv-component-container">
+<div class="main-container fv-component-container">
 
-    <mat-toolbar-row>
-      <div class="col-sm-6" style="text-align: left">
-        <span>
-          <h1><b>Proyectos</b></h1>
-        </span>
+  <mat-toolbar-row>
+    <div class="container-fluid" style="text-align: left">
+      <span>
+        <h1><b>Proyectos</b></h1>
+      </span>
+    </div>
+  </mat-toolbar-row>
+
+  <div id="main-container">
+    <div *ngFor="let experience of experiences" class="row align-items-center fv-fila-item">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="text-align:center;">
+         <img src="{{ experience.imagenExp }}" class="img-fluid shadow-sm mb-1 p-2 rounded-start" id="fotoExp">
       </div>
-      <div class="col-sm-6" style="text-align: right; margin-bottom: 2%; padding-right: 1%;">
-        <span><button type="button" class="btn btn-success" (click)="onOpenModal('add')">
-            <a class="nav-link" style="color: #fff;"> Agregar Proyecto <span class="sr-only"> (current) </span></a>
+
+      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+
+        <div class="col botones_edicion_experiencia">
+          <a (click)="onOpenModal('edit', experience)" class="btn btn-primary tooltips" data-placement="top"
+            data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>
+          </a>
+          <a (click)="onOpenModal('delete', experience)" class="btn btn-secondary tooltips" data-placement="top"
+            data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i>
+          </a>
+        </div>
+
+        <h4 id="nombre" style="text-align: left;"><b>{{ experience.tituloExp }}</b></h4>
+        <a href="{{ experience.urlExp }}">{{ experience.urlExp }}</a>
+        <h5>{{ experience.fechaExp }}</h5>
+        <p>{{ experience.descExp }}</p>
+      
+      </div>
+
+    </div>
+
+    <div class="container-fluid" style="text-align: right; margin-bottom: 2%; padding-right: 2%;">
+      <span>
+        <button type="button" class="btn btn-success btn-sm rounded" (click)="onOpenModal('add')">
+          <a class="nav-link" style="color: #fff; font-weight: normal; font-size: 12px; font-family: Roboto;"> Agregar Proyecto <span class="sr-only"> (current) </span></a>
+        </button>
+      </span>
+    </div>
+
+  </div>
+
+  <!-- Modal Agregar Experiencia-->
+
+  <div class="modal fade" id="addExperienciaModal" tabindex="-1" role="dialog" aria-labelledby="addExperienciaModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addExperienciaModalLabel">
+            Agregar Proyecto
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
           </button>
-        </span>
-      </div>
-    </mat-toolbar-row>
-  
-    <div id="main-container">
-  
-      <!--repetición-->
-  
-      <div *ngFor="let experiencia of experiencia" class="row align-items-center">
-        <div class="row">
-          <div class="col-md-4 col-sm-3 col-xs-1">
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-10 fv-fila-item-experiencia" style="text-align: center;">
-            <div class="col botones_edicion">
-              <a (click)="onOpenModal('edit', experiencia)" class="btn btn-primary tooltips" data-placement="top"
-                data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>
-              </a>
-              <a (click)="onOpenModal('delete', experiencia)" class="btn btn-secondary tooltips" data-placement="top"
-                data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i>
-              </a>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddExperiencia(addForm)">
+            <div class="form-group">
+              <label for="tituloExp">Titulo</label>
+              <input type="text" ngModel name="tituloExp" class="form-control" id="tituloExp"
+                placeholder="Nombre del proyecto" required />
             </div>
-            <h2 id="nombre"><b>&nbsp;&nbsp;&nbsp;{{experiencia.tituloExp}}</b></h2>
-          </div>
-          <div class="col-md-4 col-sm-3 col-xs-1"></div>
-        </div>
-      </div>
-  
-      <!--fin repetición-->
-  
-    </div>
-  
-    <!-- Modal Agregar Proyecto-->
-  
-    <div class="modal fade" id="addExperienciaModal" tabindex="-1" role="dialog" aria-labelledby="addExperienciaModalLabel"
-      aria-hidden="true">
-  
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="addExperienciaModalLabel">
-              Agregar Proyecto
-            </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form #addForm="ngForm" (ngSubmit)="onAddExperiencia(addForm)">
-              <div class="form-group">
-                <label for="tituloExp">Nombre</label>
-                <input type="text" ngModel name="tituloExp" class="form-control" id="tituloExp" placeholder="Nombre"
-                  required />
-              </div>
-              <div class="form-group">
-                <label for="fechaExp">Fecha</label>
-                <input type="text" ngModel name="fechaExp" class="form-control" id="fechaExp"
-                  placeholder="Fecha" required />
-              </div>
-              <div class="form-group">
-                <label for="imagenExp">Imagen descriptiva</label>
-                <input type="text" ngModel name="imagenExp" class="form-control" id="imagenExp"
-                  placeholder="URL de la imagen descriptiva" required />
-              </div>
-              <div class="modal-footer">
-                <button type="button" id="add-experiencia-form" class="btn btn-secondary" data-dismiss="modal">
-                  Cerrar
-                </button>
-                <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">
-                  Guardar cambios
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Edit modal -->
-  
-    <div class="modal fade" id="editExperienciaModal" tabindex="-1" role="dialog" aria-labelledby="editExperienciaModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="updateExperienciaModalLabel">
-              Editar Experiencia {{ editExperiencia?.tituloExp }}
-            </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form #editForm="ngForm">
-              <div class="form-group">
-                <label for="name">Nombre</label>
-                <input type="text" ngModel="{{ editExperiencia?.tituloExp }}" name="tituloExp" class="form-control"
-                  id="tituloExp" placeholder="Nombre de la experiencia..." />
-              </div>
-              <input type="text" ngModel="{{ editExperiencia?.idExp }}" name="idExp" class="form-control" id="idExp"
-                placeholder="" />
-              <div class="form-group">
-                <label for="phone">Fecha</label>
-                <input type="text" ngModel="{{ editExperiencia?.fechaExp }}" name="fechaExp" class="form-control"
-                  id="fechaExp" placeholder="start date" />
-              </div>
-              <div class="form-group">
-                <label for="imagenExp">URL Imagen descriptiva</label>
-                <input type="text" ngModel="{{ editExperiencia?.imagenExp }}" name="imagenExp" class="form-control"
-                  id="imagenExp" placeholder="Image URL" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">
-                  Cerrar
-                </button>
-                <button (click)="onUpdateExperiencia(editForm.value)" data-dismiss="modal" class="btn btn-primary">
-                  Guardar cambios
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Delete modal -->
-  
-    <div data-bs-toggle="modal" data-bs-target="#deleteModellabel" class="modal fade" id="deleteExperienciaModal" tabindex="-1"
-      role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
-  
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="deleteModelLabel">Borrar Proyecto</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>Eliminar Proyecto: {{deleteExperiencia?.tituloExp}}?</p>
+            <div class="form-group">
+              <label for="urlExp">URL Proyecto</label>
+              <input type="text" ngModel name="urlExp" class="form-control" id="urlExp"
+                placeholder="URL Proyecto" required />
+            </div>
+            <div class="form-group">
+              <label for="fechaExp">Fecha</label>
+              <input type="text" ngModel name="fechaExp" class="form-control" id="fechaExp"
+                placeholder="Fecha de ingreso" required />
+            </div>
+            <div class="form-group">
+              <label for="descExp">Descripción</label>
+              <input type="text" ngModel name="descExp" class="form-control" id="descExp" placeholder="Descripción"
+                required />
+            </div>
+            <div class="form-group">
+              <label for="imagenExp">Imagen</label>
+              <input type="text" ngModel name="imagenExp" class="form-control" id="imagenExp"
+                placeholder="URL de la imagen descriptiva" required />
+            </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                No
+              <button type="button" id="add-experience-form" class="btn btn-secondary" data-dismiss="modal">
+                Cerrar
               </button>
-              <button (click)="onDeleteExperiencia(deleteExperiencia!.idExp)" class="btn btn-danger" data-dismiss="modal">
-                Si
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">
+                Guardar cambios
               </button>
             </div>
-          </div>
+          </form>
         </div>
-      </div>
-    </div>
-  
-    <!-- Notificación "No hay experiencia" -->
-  
-    <div *ngIf="experiencia?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
-      <div class="alert alert-info" role="alert" style="margin-right: 3%;">
-        <h4 class="alert-heading">No se encontraron items.</h4>
       </div>
     </div>
   </div>
-  <h1>&nbsp;</h1>
+
+  <!-- Edit modal -->
+
+  <div class="modal fade" id="editExperienciaModal" tabindex="-1" role="dialog" aria-labelledby="editExperienciaModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateExperienciaModalLabel">
+            Editar Proyecto {{ editExperiencia?.tituloExp }}
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+
+            <div class="form-group">
+              <label for="tituloExp">Título</label>
+              <input type="text" ngModel="{{ editExperiencia?.tituloExp }}" name="tituloExp" class="form-control"
+                id="tituloExp" placeholder="Tītulo" />
+            </div>
+            <input type="text" ngModel="{{ editExperiencia?.idExp }}" name="idExp" class="form-control" id="idExp"
+            placeholder="" />
+            <div class="form-group">
+              <label for="urlExp">URL</label>
+              <input type="text" ngModel="{{ editExperiencia?.urlExp }}" name="urlExp" class="form-control"
+                id="urlExp" placeholder="URL" />
+            </div>
+            <div class="form-group">
+              <label for="descExp">Descripción</label>
+              <input type="text" ngModel="{{ editExperiencia?.descExp }}" name="descExp" class="form-control" id="descExp"
+                placeholder="Descripción" />
+            </div>
+            <div class="form-group">
+              <label for="fechaExp">Fecha</label>
+              <input type="text" ngModel="{{ editExperiencia?.fechaExp }}" name="fechaExp" class="form-control"
+                id="fechaExp" placeholder="Fecha" />
+            </div>
+            <div class="form-group">
+              <label for="imagenExp">URL Imagen</label>
+              <input type="text" ngModel="{{ editExperiencia?.imagenExp }}" name="imagenExp" class="form-control"
+                id="imagenExp" placeholder="Image URL" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">
+                Cerrar
+              </button>
+              <button (click)="onUpdateExperiencia(editForm.value)" data-dismiss="modal" class="btn btn-primary">
+                Guardar cambios
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete modal -->
+
+  <div data-bs-toggle="modal" data-bs-target="#deleteModellabel" class="modal fade" id="deleteExperienciaModal"
+    tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Borrar Experiencia</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Eliminar item: {{deleteExperiencia?.tituloExp}}?</p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              No
+            </button>
+            <button (click)="onDeleteExperiencia(deleteExperiencia!.idExp)" class="btn btn-danger" data-dismiss="modal">
+              Si
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificación "No hay experiencias" -->
+
+  <div *ngIf="experiences?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+    <div class="alert alert-info" role="alert" style="margin-right: 3%;>
+      <h4 class="alert-heading">No se encontraron items.</h4>
+    </div>
+  </div>
+</div>
+<h1>&nbsp;</h1>
+
+

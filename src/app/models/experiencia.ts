@@ -1,7 +1,8 @@
 export interface Experiencia{
-    idExp: number;
-    tituloExp: String; 
-    fechaExp: number;   
-    descExp: String;
+    idExp: number;   
+    descExp: String;  
+    fechaExp: String;
     imagenExp: String;
+    tituloExp: String;
+    urlExp: String;
 }

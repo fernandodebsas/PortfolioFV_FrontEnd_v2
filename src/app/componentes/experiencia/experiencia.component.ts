@@ -11,7 +11,7 @@ import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 })
 export class ExperienciaComponent implements OnInit {
 
-  public experiencia: Experiencia[] = [];
+  public experiences: Experiencia[] = [];
   public editExperiencia: Experiencia | undefined;
   public deleteExperiencia: Experiencia | undefined;
   
@@ -24,7 +24,7 @@ export class ExperienciaComponent implements OnInit {
   public getExperiencia(): void {
     this.experienciaService.getExperiencia().subscribe({
       next: (Response: Experiencia[]) => {
-        this.experiencia = Response;
+        this.experiences = Response;
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);

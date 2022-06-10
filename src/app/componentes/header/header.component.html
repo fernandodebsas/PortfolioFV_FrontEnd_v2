@@ -1,20 +1,40 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<div class="fv-component-container-header" style="width: 100;">
-    <div *ngIf="usuario">
-        <div class="col-sm-12">
-            <span>
-                <img src="../../../assets/images/banner_tech.jpg" class="img-fluid"
-                    style="border-radius: 18px 0px 0px 0px; border-bottom: 2px solid rgb(182, 207, 255);">
-                <img src="{{usuario.fotoPerfil}}" class="img-fluid shadow-sm mb-10 bg-light rounded"
-                    style="position:relative; bottom: 8em; left: 2em; width: 180px; border: 2px solid rgb(182, 207, 255); float: left;">
-                <div class="fv-textimgwrap">
-                    <div class="row"><h1><b>{{usuario.nombre}} {{usuario.apellido}}</b></h1></div>
-                    <div class="row"><h2>{{usuario.titulo}}</h2></div>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
+<div class="fv-component-container-header">
+    <div *ngIf="usuario" class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 fondo_banner"
+                style="border-bottom: 3px solid rgb(182, 207, 255);">
+                <img src="{{usuario.fotoPerfil}}" class="shadow-sm mb-10 bg-light rounded foto_acercade">
+            </div>
+
+            <div class="col-sm= col-md-3">&nbsp;</div>
+
+            <div class="col-sm- col-md-6">
+                <span class="col" style="position:relative; text-align: center; top: 2vw; color: dodgerblue"><h1><b>{{ usuario.nombre }} {{ usuario.apellido }}</b></h1></span>
+                <span class="col" style="position:relative; text-align: center; top: 2vw;"><h2><b>{{ usuario.titulo }}</b></h2></span>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <span class="col" style="position:relative; text-align: center; top: 2vw;">
+                    <h5><b><i class="fa-solid fa-location-dot" style="color: red"></i> {{ usuario.domicilio }}</b></h5>
+                </span>
+            </div>
+
+            <div class="col-md-1">&nbsp;</div>
+
+            <div class="col-xs-12 col-sm-12 col-md-10" style="margin-top: 3vw; padding: 3vw; text-align: left;">
+                <div class="card">
+                    <div class="card-header" style="text-align: center; padding-top: 4vh;">
+                       <h1><b><i class="fa fa-info-circle" style="color: orange"></i> Información</b></h1>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>{{ usuario.descripcion }}</p>
+                        </blockquote>
+                    </div>
                 </div>
-            </span>
+            </div>
         </div>
     </div>
 </div>
