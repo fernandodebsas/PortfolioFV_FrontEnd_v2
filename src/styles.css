@@ -2,28 +2,21 @@
   margin: 2%;
   padding-top: 3%;
   padding-left: 3%;
-  border: 2px solid rgb(182, 207, 255);
+  border: 1px solid #00417a;
   border-radius: 20px 0px 0px 20px;
 }
 
 .fv-component-container-header {
   margin-left: 2%;
   margin-right: 2%;
-  border: 2px solid rgb(182, 207, 255);
+  border: 1px solid #00417a;
   border-radius: 20px 0px 0px 20px;
 }
 
 .fv-fila-item {
   padding: 20px;
   margin: 2%;
-  border: 2px solid rgb(224, 233, 248);
-  border-radius: 20px 0px 0px 20px;
-}
-
-.fv-fila-item-skills {
-  padding: 20px;
-  margin: 2%;
-  border: 2px solid rgb(224, 233, 248);
+  border: 1px solid #e9ecef;
   border-radius: 20px 0px 0px 20px;
 }
 
@@ -40,16 +33,16 @@
   position: relative;
   text-align: right;
   top: 20px;
-  margin-top: -30px;
-  right: -20px;
+  margin-top: -92px;
+  right: -10px;
 }
 
 .mat-toolbar-row-stickyheader {
   background: rgb(0, 65, 122);
   background: linear-gradient(
     180deg,
-    rgba(0, 65, 122, 1) 25%,
-    rgba(49, 141, 227, 1) 93%
+    rgba(0, 65, 122, 1),
+    rgba(49, 141, 227, 1)
   );
 }
 
@@ -57,8 +50,8 @@
   background: rgb(0, 65, 122);
   background: linear-gradient(
     0deg,
-    rgba(0, 65, 122, 1) 25%,
-    rgba(49, 141, 227, 1) 93%
+    rgba(0, 65, 122, 1),
+    rgba(49, 141, 227, 1)
   );
 }
 
@@ -69,7 +62,7 @@
 }
 
 body{
-  color:rgb(80, 80, 80)
+  color:rgb(88, 88, 88);
 }
 
 #fotoEdu{
@@ -81,13 +74,16 @@ body{
   max-width: 15%;
   position: relative;
   left: 3vw;
-  top: 10vw;
+  top: 8vw;
   margin-bottom: 1vw;
-  border: 2px solid rgb(182, 207, 255);
-  border-radius: 20px 20px 0px 20px;
+  border: 1px solid #00417a;
 }
 
 .fondo_banner{
   background-image: url(assets/images/banner_tech.jpg);
   background-size: cover;
+}
+
+.shadow {
+  box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15) !important;
 }

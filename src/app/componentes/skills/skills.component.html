@@ -18,7 +18,7 @@
 
         <div class="col">
 
-          <div class="card shadow">
+          <div class="card shadow-sm">
             <div class="card-header border-0">
               <h3 class="mb-0" id="mayusculas" style="text-align: center;">Hard Skills</h3>
             </div>
@@ -40,7 +40,7 @@
                     <ng-container *ngIf="(skill.isHardSkill == true)">
                       <th scope="row">
                         <div class="media align-items-center">
-                          <a href="#" class="avatar rounded-circle mr-3">
+                          <a href="#" class="avatar rounded-circle mr-3 shadow-sm">
                             <img alt="Image placeholder" src="{{skill.fotoSkill}}">
                           </a>
                           <div class="media-body">
@@ -52,8 +52,8 @@
                       <td>
                         <div>
                           <circle-progress [showSubtitle]="false" [titleFontSize]="'11'" [percent]="skill.porcentaje"
-                            [radius]="30" [outerStrokeWidth]="2" [innerStrokeWidth]="1" [outerStrokeColor]="'rgba(49, 141, 227, 1)'"
-                            [innerStrokeColor]="'rgb(182, 207, 255)'" [animation]="true" [animationDuration]='(skill.porcentaje*10)'>
+                            [radius]="30" [outerStrokeWidth]="2" [innerStrokeWidth]="1" [outerStrokeColor]="'orange'"
+                            [innerStrokeColor]="'navajowhite'" [animation]="true" [animationDuration]='(skill.porcentaje*50)'>
                           </circle-progress>
                         </div>
 
@@ -87,7 +87,7 @@
 
         <div class="col">
 
-          <div class="card shadow">
+          <div class="card shadow-sm">
             <div class="card-header border-0">
               <h3 class="mb-0" id="mayusculas" style="text-align: center;">Soft Skills</h3>
             </div>
@@ -109,7 +109,7 @@
                     <ng-container *ngIf="(skill.isHardSkill == false)">
                       <th scope="row">
                         <div class="media align-items-center">
-                          <a href="#" class="mr-3" style="font-size: 20px;">
+                          <a href="#" class="mr-3" style="font-size: 20px; color: #318de3;">
                             <i class={{skill.fotoSkill}} aria-hidden="true"></i>
                           </a>
 
@@ -123,8 +123,8 @@
                       <td>
                         <div>
                           <circle-progress [showSubtitle]="false" [titleFontSize]="'11'" [percent]="skill.porcentaje"
-                            [radius]="30" [outerStrokeWidth]="2" [innerStrokeWidth]="1" [outerStrokeColor]="'#78C000'"
-                            [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="1000">
+                            [radius]="30" [outerStrokeWidth]="2" [innerStrokeWidth]="1" [outerStrokeColor]="'limegreen'"
+                            [innerStrokeColor]="'lightgreen'" [animation]="true" [animationDuration]="1000">
                           </circle-progress>
                         </div>
 

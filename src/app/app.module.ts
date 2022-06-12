@@ -14,6 +14,7 @@ import { SkillsComponent } from './componentes/skills/skills.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { NgPipesModule } from 'ngx-pipes';
+import { Loginborrar1Component } from './componentes/loginborrar1/loginborrar1.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NgPipesModule } from 'ngx-pipes';
     StickyheaderComponent,
     FooterComponent,
     SkillsComponent,
-    ExperienciaComponent
+    ExperienciaComponent,
+    Loginborrar1Component
   ],
   imports: [
     BrowserModule,

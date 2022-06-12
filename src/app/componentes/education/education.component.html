@@ -10,9 +10,17 @@
 
   <div id="main-container">
 
-    <div *ngFor="let education of educations" class="row align-items-center fv-fila-item">
+    <div *ngFor="let education of educations" class="row align-items-center fv-fila-item shadow-sm">
 
       <div class="row">
+
+      </div>
+
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="text-align:center;">
+         <img src="{{ education.imagenEdu }}" class="img-fluid shadow-sm mb-1 p-2 rounded-start" id="fotoEdu">
+      </div>
+      
+      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 
         <div class="col botones_edicion">
           <a (click)="onOpenModal('edit', education)" class="btn btn-primary tooltips" data-placement="top"
@@ -23,20 +31,9 @@
           </a>
         </div>
 
-      </div>
-
-      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="text-align:center;">
-         <img src="{{ education.imagenEdu }}" class="img-fluid shadow-sm mb-1 p-2 rounded-start" id="fotoEdu">
-      </div>
-      
-      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-        <span class="align-middle">
-
           <h4 id="nombre"><b>{{ education.tituloEdu }}</b></h4>
           <h5>Período: {{ education.fechaEdu }}</h5>
           <p>{{ education.descEdu }}</p>
-
-        </span>
       </div>
 
     </div>

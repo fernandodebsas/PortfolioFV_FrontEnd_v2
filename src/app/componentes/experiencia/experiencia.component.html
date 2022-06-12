@@ -9,7 +9,8 @@
   </mat-toolbar-row>
 
   <div id="main-container">
-    <div *ngFor="let experience of experiences" class="row align-items-center fv-fila-item">
+    <div *ngFor="let experience of experiences" class="row align-items-center fv-fila-item shadow-sm">
+      
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="text-align:center;">
          <img src="{{ experience.imagenExp }}" class="img-fluid shadow-sm mb-1 p-2 rounded-start" id="fotoExp">
       </div>
@@ -189,7 +190,7 @@
   <!-- Notificación "No hay experiencias" -->
 
   <div *ngIf="experiences?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
-    <div class="alert alert-info" role="alert" style="margin-right: 3%;>
+    <div class="alert alert-info" role="alert" style="margin-right: 3%;">
       <h4 class="alert-heading">No se encontraron items.</h4>
     </div>
   </div>

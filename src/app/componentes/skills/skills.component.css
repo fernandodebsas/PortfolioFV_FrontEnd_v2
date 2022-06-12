@@ -927,10 +927,6 @@ button.bg-default:focus {
     border: 0;
 }
 
-.shadow {
-    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15) !important;
-}
-
 .mb-0 {
     margin-bottom: 0 !important;
 }

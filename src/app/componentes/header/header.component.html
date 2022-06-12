@@ -1,38 +1,73 @@
 <p>&nbsp;</p>
-<p>&nbsp;</p>
+<h1>&nbsp;</h1>
 <div class="fv-component-container-header">
     <div *ngIf="usuario" class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 fondo_banner"
-                style="border-bottom: 3px solid rgb(182, 207, 255);">
-                <img src="{{usuario.fotoPerfil}}" class="shadow-sm mb-10 bg-light rounded foto_acercade">
+                style="border-bottom: 1px solid #00417a; border-radius: 14px 0px 0px 0px;">
+                <img src="{{usuario.fotoPerfil}}" class="rounded-circle foto_acercade">
             </div>
 
-            <div class="col-sm= col-md-3">&nbsp;</div>
+            <div class="col-md-3">&nbsp;</div>
 
-            <div class="col-sm- col-md-6">
-                <span class="col" style="position:relative; text-align: center; top: 2vw; color: dodgerblue"><h1><b>{{ usuario.nombre }} {{ usuario.apellido }}</b></h1></span>
-                <span class="col" style="position:relative; text-align: center; top: 2vw;"><h2><b>{{ usuario.titulo }}</b></h2></span>
-            </div>
-
-            <div class="col-sm-12 col-md-3">
-                <span class="col" style="position:relative; text-align: center; top: 2vw;">
+            <div class="col-md-6">
+                <span class="row container-fluid" style="position:relative; text-align: center; top: 2vw; color: #00417a"><h1><b>{{ usuario.nombre }} {{ usuario.apellido }}</b></h1></span>
+                <span class="row container-fluid" style="position:relative; text-align: center; top: 1vw;"><h2><b>{{ usuario.titulo }}</b></h2></span>
+                <span class="row container-fluid" style="position:relative; text-align: center;">
                     <h5><b><i class="fa-solid fa-location-dot" style="color: red"></i> {{ usuario.domicilio }}</b></h5>
                 </span>
+                <span class="row container-fluid" style="position:relative; text-align: center; bottom: 0vw;"><a data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">+ info</a></span>
             </div>
 
-            <div class="col-md-1">&nbsp;</div>
+            <div class="col-sm-12 col-md-3"></div>
 
-            <div class="col-xs-12 col-sm-12 col-md-10" style="margin-top: 3vw; padding: 3vw; text-align: left;">
-                <div class="card">
+            <div class="col-md-1">&nbsp;</div>
+             
+            <div class="col-xs-12 col-sm-12 col-md-10" style="padding: 3vw; text-align: left;">
+                <div class="collapse" id="collapseExample">
+                <div class="card shadow-sm">
+
                     <div class="card-header" style="text-align: center; padding-top: 4vh;">
-                       <h1><b><i class="fa fa-info-circle" style="color: orange"></i> Información</b></h1>
+                        <h4><b><i class="fa fa-info-circle" style="color: orange"></i> Información</b></h4>
                     </div>
+                    
                     <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                            <p>{{ usuario.descripcion }}</p>
-                        </blockquote>
+                        <table class="table">
+                            <tbody>
+                            
+
+                              <tr>
+                                <th scope="row" class="col-sm-2" style="text-align: right;">nombre</th>
+                                <td>{{ usuario.nombre }}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="col-sm-2" style="text-align: right;">segundo nombre</th>
+                                <td>{{ usuario.middleName }}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" style="text-align: right;">apellido</th>
+                                <td>{{ usuario.apellido }}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="col-sm-2" style="text-align: right;">nacimiento</th>
+                                <td>{{ usuario.fechaNacUsuario }}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="col-sm-2" style="text-align: right;">e-mail</th>
+                                <td><span class="collapse" id="verMail">{{ usuario.mailUsuario }}</span>&nbsp;<a data-bs-toggle="collapse" href="#verMail" aria-expanded="false" aria-controls="verMail"><i class="fa-solid fa-eye"></i></a></td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="col-sm-2" style="text-align: right;">móvil</th>
+                                <td><span class="collapse" id="verMovil">{{ usuario.movilUsuario }}</span>&nbsp;<a data-bs-toggle="collapse" href="#verMovil" aria-expanded="false" aria-controls="verMovil"><i class="fa-solid fa-eye"></i></a></td>
+                              </tr>
+                              <tr>
+                                <th scope="row" style="text-align: right;">acerca de</th>
+                                <td>{{ usuario.descripcion }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
